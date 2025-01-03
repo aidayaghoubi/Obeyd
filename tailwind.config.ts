@@ -9,11 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        // Define your custom colors here
+        primary: "#fa7500", // Custom red color
+        mainBlue: '#CCDCE5',
+        textColor: '#414149',
+        mainRed: '#C4616E',
+        activeRed: "#D21341",
+        background: "var(--background)", // Using CSS variables
+        foreground: "var(--foreground)", // Using CSS variables
       },
+      backgroundImage: {
+        'aboutUsPattern': "url('/aboutUs.png')",
+        'footer-texture': "url('/img/footer-texture.png')",
+      }
     },
   },
   plugins: [],
 };
+
 export default config;

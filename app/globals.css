@@ -3,25 +3,94 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F8FAFC;
+  --foreground: #1f1f27;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1f1f27;
+    --foreground: #F8FAFC;
   }
 }
 
 body {
   color: var(--foreground);
+  direction: rtl;
+  transition: 0.3s;
+  scroll-behavior: smooth;
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Vazir', Helvetica, sans-serif;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+
+::-webkit-scrollbar {
+  width:5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #1f1f27;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #9a9a9a;
+  border-radius: 15px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #9a9a9a;
+} 
+
+@font-face {
+  font-family: 'Vazir';
+  src: url('./fonts/Vazir-Black-FD-WOL.woff') format('woff');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Vazir';
+  src: url('./fonts/Vazir-Bold-FD-WOL.woff') format('woff');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Vazir';
+  src: url('./fonts/Vazir-Light-FD.woff') format('woff');
+  font-weight: 100;
+}
+@font-face {
+  font-family: 'Vazir';
+  src: url('./fonts/Vazir-Medium-FD.woff') format('woff');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Vazir';
+  src: url('./fonts/Vazir-Regular-FD.woff') format('woff');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Vazir';
+  src: url('./fonts/Vazir-Thin-FD-WOL.woff') format('woff');
+  font-weight: 200;
+}
+
+input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #949494;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type=text]:focus {
+  border: 1px solid #A40F33;
 }
