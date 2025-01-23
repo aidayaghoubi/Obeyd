@@ -1,13 +1,12 @@
 import Layout from './components/Layout'
 import Introduction from "./components/Landing/Introduction";
-import AboutUs from "./components/Landing/AboutUs";
-import Funniest from "./components/Landing/Funniest";
+import Funniest from './components/Landing/JokePreview';
+// import AboutUs from "./components/Landing/AboutUs";
 
 export default function Home() {
   return (
     <Layout>
-        <Introduction />
-      <AboutUs />
+      <Introduction />
       <Funniest />
     </Layout>
   );

@@ -15,19 +15,19 @@ const ICON_MAP = {
 
 }
 
-const Input = ({ value, label, onChange, required = false, error, name, type }) => {
+const Input = ({ value, label, onChange, required = false, error, name, type,style="" }) => {
 
-  return <div className="mb-2 flex flex-col items-start relative" >
+  return <div className={`mb-2 flex flex-col items-start relative ${style}`} >
 
     <div className="absolute right-2 top-[48%]">
       {ICON_MAP[type]}
     </div>
-    <label className="text-sm text-black mb-[1px]">
+    <label className="text-sm text-black mb-[2px]">
       {label}
       {!required && "*"}
     </label>
 
-    <input className="rounded-md border w-full py-[6px] pr-8 px-2 border-[#949494]" value={value} onChange={(e) => onChange(e)} name={name} type="text" />
+    <input className="rounded-md border w-full py-[8px] pr-8 px-2 border-[#949494]" value={value} onChange={(e) => onChange(e)} name={name} type="text" />
     {
       error && <p>{error}</p>
     }

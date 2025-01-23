@@ -1,5 +1,5 @@
 import "./globals.css";
-import { AuthProvider } from "../context/AuthContext"; // ایمپورت AuthProvider
+import { AuthProvider } from "../context/AuthContext"; 
 
 
 export const metadata = {

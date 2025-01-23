@@ -42,7 +42,7 @@ const LoginForm = () => {
       onChange={(e) => handleFormChange(e, item.name)}
     />)}
     <div className="mt-6">
-      <Button varient="submit" title="ارسال کد فراموشی" />
+      <Button variant="submit" title="ارسال کد فراموشی" />
     </div>
     <div className="absolute right-0 bottom-0">
       <Image

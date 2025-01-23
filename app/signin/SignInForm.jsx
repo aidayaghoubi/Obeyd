@@ -60,7 +60,7 @@ const LoginForm = () => {
       onChange={(e) => handleFormChange(e, item.name)}
     />)}
     <div className="mt-6">
-      <Button disabled varient="submit" title="ورود" />
+      <Button disabled variant="submit" title="ورود" />
     </div>
 
     <div className="absolute right-0 bottom-0">

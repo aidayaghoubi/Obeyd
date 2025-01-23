@@ -50,7 +50,7 @@ const LoginForm = () => {
       onChange={(e) => handleFormChange(e, item.name)}
     />)}
     <div className="mt-6">
-      <Button varient="submit" title="ورود" />
+      <Button variant="submit" title="ورود" />
     </div>
     <div className="flex justify-between items-center my-0 gap-2">
       <div className="w-full h-[0.5px] bg-[#bdbebf]" />
