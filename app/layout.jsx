@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="/logo.png" sizes="any" />
       </head>
-      <body className='antialiased'>
+      <body>
         <AuthProvider>
           {children}
         </AuthProvider>
