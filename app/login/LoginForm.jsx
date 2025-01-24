@@ -3,7 +3,6 @@ import { useState } from "react"
 import Input from "../components/Input"
 import Button from "../components/Button"
 import Image from "next/image"
-import Link from "next/link"
 import { useRouter } from 'next/navigation'
 import { useAuth } from "@/context/AuthContext"
 
@@ -23,7 +22,7 @@ const fields = [
   },
 ]
 
-const requiredFelid = ["name", "userName"]
+// const requiredFelid = ["name", "userName"]
 
 const LoginForm = () => {
 

@@ -27,10 +27,10 @@ const fields = [
 
 const UserInfo = () => {
 
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState<Record<string, string>>({});
 
   function handleFormChange(e: string, id: string) {
-
+    setFormData(prev => ({...prev,[id]:e}))
   }
 
   return <motion.div
@@ -47,8 +47,7 @@ const UserInfo = () => {
         label={item.label}
         name={item.name}
         required={item.required}
-        //@ts-ignore
-        value={formData[item.name]}
+        value={formData[item.name] || ""}
         type={item.name}
         onChange={(e: string) => handleFormChange(e, item.name)}
       />)}

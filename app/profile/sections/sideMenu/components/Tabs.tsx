@@ -3,7 +3,6 @@ import { TActiveTab } from "@/app/profile/page";
 import TabButton, { TTab } from "./TabButton";
 import { FaUserCog } from "react-icons/fa";
 import { BsEmojiLaughingFill } from "react-icons/bs";
-import { IoExit } from "react-icons/io5";
 import { BsFillPatchQuestionFill } from "react-icons/bs";
 import Button from "@/app/components/Button";
 import { useAuth } from "@/context/AuthContext";
