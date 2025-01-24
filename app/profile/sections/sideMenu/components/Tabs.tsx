@@ -1,3 +1,4 @@
+"use client"
 import { TActiveTab } from "@/app/profile/page";
 import TabButton, { TTab } from "./TabButton";
 import { FaUserCog } from "react-icons/fa";
@@ -5,6 +6,7 @@ import { BsEmojiLaughingFill } from "react-icons/bs";
 import { IoExit } from "react-icons/io5";
 import { BsFillPatchQuestionFill } from "react-icons/bs";
 import Button from "@/app/components/Button";
+import { useAuth } from "@/context/AuthContext";
 
 
 
@@ -23,6 +25,11 @@ interface ISideMenu {
 
 const Tabs = ({ activeTab, changeTab }: ISideMenu) => {
 
+  const {logout} = useAuth()
+
+  function onLogout(){
+    logout()
+  }
 
   return <div className="px-4 py-4">
     {
@@ -31,7 +38,7 @@ const Tabs = ({ activeTab, changeTab }: ISideMenu) => {
     <Button
       variant=""
       disabled={false}
-      onClick={() => console.log("d")}
+      onClick={onLogout}
       title="خروج از حساب" />
   </div>
 }

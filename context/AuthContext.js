@@ -4,15 +4,16 @@ const KEY = 'user'
 
 const AuthContext = createContext();
 
+function getFromLocal() {
+  const data = localStorage.getItem(KEY)
+  if (data) {
+    return JSON.parse(data)
+  } else return null
+}
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(getFromLocal());
 
-  function getFromLocal(){
-    const data = localStorage.getItem(KEY)
-    if (data) {
-      return JSON.parse(data)
-    }else return {username:'ayda'}
-  }
 
   const login = (userData) => {
     setUser(userData);

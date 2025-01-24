@@ -1,9 +1,11 @@
 "use client";
+import { useAuth } from "@/context/AuthContext";
 import Image from "next/image";
 import { useRouter } from 'next/navigation'
 
 const Header = () => {
   const router = useRouter()
+  const { user } = useAuth()
   const navigateTo = (link) => {
     router.push(`/${link}`)
   };
@@ -17,7 +19,7 @@ const Header = () => {
             جوکامون
           </button>
         </div>
-        <div onClick={() => navigateTo("home")}
+        <div onClick={() => navigateTo("")}
           className="cursor-pointer w-2/6 flex justify-center">
           <Image
             src="/logo.png"
@@ -27,9 +29,17 @@ const Header = () => {
           />
         </div>
         <div className="w-2/6 flex justify-center text-[18px] text-end">
-          <button onClick={() => navigateTo("login")} className="text-textColor font-medium py-2 px-6 rounded-lg  hover:bg-gray-100 transition duration-300">
-            ورود / ثبت نام
-          </button>
+
+          {user?.name ?
+            <button onClick={() => navigateTo("profile")}>
+              {user?.name}
+            </button>
+            :
+            <button onClick={() => navigateTo("login")} className="text-textColor font-medium py-2 px-6 rounded-lg  hover:bg-gray-100 transition duration-300">
+              ورود / ثبت نام
+            </button>
+          }
+
         </div>
       </div>
     </header>

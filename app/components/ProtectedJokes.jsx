@@ -8,6 +8,8 @@ const ProtectedRoute = ({ children }) => {
   const { user } = useAuth(); 
   const router = useRouter(); 
 
+  console.log(user,"user")
+
   useEffect(() => {
     if (!user) {
       router.push('/'); 
