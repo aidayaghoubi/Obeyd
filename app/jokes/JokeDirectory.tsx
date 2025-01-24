@@ -4,14 +4,31 @@ import Joke from "../components/JokeBox/Joke";
 import { useAuth } from "@/context/AuthContext";
 import Button from "../components/Button";
 import { useRouter } from 'next/navigation'
-import { IJoke } from "@/models/joke/joke";
 
 
-interface Props {
-  jokes : IJoke[]
+export interface IJoke {
+  content: string,
+  likeCount: number,
+  dislikeCount: number,
+  creator: {
+    userName: string,
+    name: string
+  }
+  _id: string,
+  replies: [
+    {
+      userName: string,
+      content: string,
+      _id: string
+    }
+  ]
 }
 
-const JokeDirectory : React.FC<Props> = ({ jokes }) => {
+interface Props {
+  jokes: IJoke[]
+}
+
+const JokeDirectory: React.FC<Props> = ({ jokes }) => {
 
   const { user } = useAuth()
   const router = useRouter()

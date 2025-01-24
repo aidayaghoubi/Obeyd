@@ -1,15 +1,10 @@
 'use client';
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 const text = "عبید راهی برای خنده"
 
 export default function Introduction() {
-
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true });
-
   return <div id="intro" className="w-full mt-[-45px] flex justify-center px-16">
     <div className="flex relative min-h-[60vh] rounded-2xl bg-[#EFF4F7] w-full p-2 justify-center gap-20">
       <div className="flex justify-center flex-col items-center mb-10">

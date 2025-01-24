@@ -3,8 +3,12 @@ import { useState } from "react"
 import JokeActions from "./JokeActions"
 import ReplayJoke from "./ReplayJoke"
 import Reaction from "./Reaction"
+import { IJoke } from '../../jokes/JokeDirectory'
 
-const Joke = ({ data }) => {
+interface IJOkeSingle{
+  data:IJoke
+}
+const Joke = ({data}: IJOkeSingle) => {
 
   const [showComment, setShowComment] = useState(false)
 
@@ -17,8 +21,8 @@ const Joke = ({ data }) => {
       {data?.content}
     </p>
     <div className="w-full mt-4 h-0.5 bg-[#EFF4F7]" />
-    <Reaction  replyCount={data?.replies?.length} dislikeCount={data?.dislikeCount} likeCount={data?.likeCount} jokeId={data._id} like={data} onShowComment={setShowComment} />
-    <ReplayJoke replies={data?.replies || []} jokeId={data._id} showReplay={showComment}/>
+    <Reaction replyCount={data?.replies?.length} dislikeCount={data?.dislikeCount} likeCount={data?.likeCount} jokeId={data._id} onShowComment={setShowComment} />
+    <ReplayJoke replies={data?.replies || []} jokeId={data._id} showReplay={showComment} />
   </div>
 }
 export default Joke

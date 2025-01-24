@@ -1,4 +1,4 @@
-const APP_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL; 
+const APP_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 
 function apiDecorator(url: string) {
@@ -6,6 +6,7 @@ function apiDecorator(url: string) {
 }
 
 interface X extends RequestInit {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     body: any
 }
 
