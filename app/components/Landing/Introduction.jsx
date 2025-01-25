@@ -1,10 +1,24 @@
 'use client';
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 const text = "عبید راهی برای خنده"
 
 export default function Introduction() {
+
+  const { user } = useAuth()
+  const router = useRouter()
+  
+  function onNavigateToLogin() {
+    if (user?.name) {
+      router.push("/jokes")
+    } else {
+      router.push("/login")
+    }
+  }
+
   return <div id="intro" className="w-full mt-[-45px] flex justify-center px-16">
     <div className="flex relative min-h-[60vh] rounded-2xl bg-[#EFF4F7] w-full p-2 justify-center gap-20">
       <div className="flex justify-center flex-col items-center mb-10">
@@ -32,7 +46,7 @@ export default function Introduction() {
           }}
         >
           <h4 className="text-2xl mt-8 leading-10">
-            سلام! به عبید خوش اومدی! اینجا جاییه که میتونی کلی بخندی و حال کنی. ما یه سایت باحالیم که <br /> توش میتونی جک های خنده دارت رو با بقیه به اشتراک بذاری و به جک های بقیه واکنش نشون بدی.
+            سلام! به عبید خوش اومدی! اینجا جاییه که میتونی کلی بخندی و حال کنی. ما یه سایت باحالیم که <br /> توش میتونی جوک های خنده دارت رو با بقیه به اشتراک بذاری و به جوک های بقیه واکنش نشون بدی.
           </h4>
         </motion.div>
         <motion.div
@@ -43,7 +57,11 @@ export default function Introduction() {
             scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
           }}
         >
-          <button className="text-xl hover:scale-105 transition bg-[#D21341] text-white px-12 py-2 mt-8 rounded-lg">بزن بریم</button>
+          <button
+            onClick={onNavigateToLogin}
+            className="text-xl hover:scale-105 transition bg-[#D21341] text-white px-12 py-2 mt-8 rounded-lg">
+            بزن بریم
+          </button>
         </motion.div>
       </div>
       <motion.div

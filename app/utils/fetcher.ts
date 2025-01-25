@@ -10,11 +10,22 @@ interface X extends RequestInit {
     body: any
 }
 
-const fetcher = (url: string, requestInit: X) => {
-    return fetch(apiDecorator(url), {
+const fetcher = async (url: string, requestInit: X) => {
+    const response = await fetch(apiDecorator(url), {
         ...requestInit,
-        ...(requestInit?.body ? ({ body: JSON.stringify(requestInit.body) }) : {}),
-    }).then(res => res.json())
+        ...(requestInit.body ? { body: JSON.stringify(requestInit.body) } : {}),
+      });
+      
+    if (!response.ok) {
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+      }
+    
+      try {
+        return await response.json();
+      } catch (error) {
+        console.error("Failed to parse JSON response:", error);
+        return {};
+      }
 }
 
 

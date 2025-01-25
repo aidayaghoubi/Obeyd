@@ -9,19 +9,19 @@ import { useRouter } from 'next/navigation'
 export interface IJoke {
   content: string,
   likeCount: number,
+  createdAt: string,
   dislikeCount: number,
   creator: {
     userName: string,
-    name: string
+    name: string,
+    id?: string,
   }
   _id: string,
-  replies: [
-    {
-      userName: string,
-      content: string,
-      _id: string
-    }
-  ]
+  replies: {
+    userName: string,
+    content: string,
+    _id: string
+  } []
 }
 
 interface Props {
@@ -45,8 +45,8 @@ const JokeDirectory: React.FC<Props> = ({ jokes }) => {
     style={{ overflow: "hidden" }}
   >
     <div className='lg:px-48 px-16 mb-40 min-h-[550px]'>
-      {(user?.name ? jokes : jokes.slice(0, 5)).map((joke, index) => (
-        <Joke data={joke} key={index} />
+      {(user?.name ? jokes : jokes.slice(0, 5)).map((joke) => (
+        <Joke data={joke} key={joke._id} />
       ))}
       {!user &&
         <div className="flex justify-center">

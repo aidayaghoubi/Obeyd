@@ -5,39 +5,40 @@ import { useState } from "react"
 
 const fields = [
   {
+    label: 'نام مستعار',
+    required: true,
+    name: "name",
+    icon: '',
+  },
+  {
     label: 'نام کاربری',
     required: true,
     name: "userName",
-    icon: '',
-  },
-  {
-    label: 'ایمیل',
-    required: true,
-    name: "email",
     error: '',
-    icon: '',
-  },
-  {
-    label: 'رمز عبور',
-    required: true,
-    name: "password",
     icon: '',
   },
 ]
 
-const UserInfo = () => {
 
-  const [formData, setFormData] = useState<Record<string, string>>({});
+interface IUserInfo {
+  user: {
+    name: string,
+    userName: string
+  }
+}
+const UserInfo = ({ user }: IUserInfo) => {
+
+  const [formData, setFormData] = useState<Record<string, string>>(user);
 
   function handleFormChange(e: string, id: string) {
-    setFormData(prev => ({...prev,[id]:e}))
+    // setFormData(prev => ({ ...prev, [id]: e }))
   }
 
   return <motion.div
     initial={{ y: 30 }}
     animate={{ y: 0 }}
     transition={{ duration: 0.3 }}
-    style={{overflow: "hidden" }}
+    style={{ overflow: "hidden" }}
   >
     <div className="flex flex-wrap gap-x-4 justify-between gap-y-4 ">
       {fields.map((item, i) => <Input
@@ -51,7 +52,9 @@ const UserInfo = () => {
         type={item.name}
         onChange={(e: string) => handleFormChange(e, item.name)}
       />)}
-      <Button className="w-[calc(50%-8px)] mt-5" onClick={() => console.log("d")} disabled={false} variant="submit" title="ویرایش اطلاعات" />
+      <div className="w-1/2">
+        <Button className="w-[calc(50%-8px)] mt-5 bg-[#dda0a0]" onClick={() => console.log("d")} disabled={false} variant="submit" title="ویرایش اطلاعات" />
+      </div>
 
     </div>
   </motion.div>

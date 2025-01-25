@@ -30,30 +30,30 @@ const Footer = () => {
                 <a href="#intro">خانه</a>
                 <a href="#jokes">جوکامون</a>
               </div>
-              <a href="mailto:gmail@gmail.com">پشتیبانی: gmail@gmail.com</a>
+              <a href="mailto:Obeyd@gmail.com">پشتیبانی: Obeyd@gmail.com</a>
             </div>
             <div className="w-1/2 flex gap-3">
-              <div>
+              <div className="hover:scale-105 transition cursor-pointer">
                 <Image
                   src="/instagram.png"
-                  width={50}
-                  height={50}
+                  width={35}
+                  height={35}
                   alt="Instagram"
                 />
               </div>
-              <div>
+              <div className="hover:scale-105 transition cursor-pointer">
                 <Image
                   src="/twitter.png"
-                  width={50}
-                  height={50}
+                  width={35}
+                  height={35}
                   alt="Twitter"
                 />
               </div>
-              <div>
+              <div className="hover:scale-105 transition cursor-pointer">
                 <Image
                   src="/telegram.png"
-                  width={50}
-                  height={50}
+                  width={35}
+                  height={35}
                   alt="Telegram"
                 />
               </div>

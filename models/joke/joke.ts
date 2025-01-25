@@ -15,6 +15,7 @@ const jokeSchema = new Schema({
     replies: [replySchema],
     creator: {
         name: String,
+        createdTime: Number,
         id: String,
     },
 }, {

@@ -10,12 +10,12 @@ const ProtectedRoute = ({ children }) => {
 
 
   useEffect(() => {
-    if (!user) {
+    if (user) {
       router.push('/'); 
     }
   }, [user, router]);
 
-  if (!user) {
+  if (user) {
     return null; 
   }
 

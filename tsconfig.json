@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/layout.jsx", "app/login/layout.jsx", "app/components/Landing/Introduction.jsx", "app/components/JokeBox/JokeActions.jsx", "app/components/Landing/JokePreview/index.jsx", "app/jokes/JokeDirectory.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/layout.jsx", "app/login/layout.jsx", "app/components/Landing/Introduction.jsx", "app/components/JokeBox/JokeActions.jsx", "app/components/Landing/JokePreview/index.jsx", "app/jokes/JokeDirectory.tsx", "models/user/user.js", "app/utils/timeConvertor.ts"],
   "exclude": ["node_modules"]
 }

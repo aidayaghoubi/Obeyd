@@ -3,7 +3,7 @@ import Image from "next/image";
 import FunnyCard from './components/FunnyCard'
 import MainLogo from '../../MainLogo'
 import { useRef } from "react";
-import {motion, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 export const FUNNIEST_JOKES = [
   {
     joke: "یارو لنگ بوده با کشتی میره سفر… وقتی برمی‌گرده رفیقش میگه خب سفر خوش گذشت؟؟ میگه نه بابا همش استرس داشتم هی می‌گفتن لنگرو بندازین تو آب؟",
@@ -54,6 +54,7 @@ export default function Funniest() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: false });
 
+
   return <motion.div
     ref={ref}
     initial={{ opacity: 0, y: 70 }}
@@ -74,13 +75,16 @@ export default function Funniest() {
         <div className="flex items-center">
           <MainLogo />
           <h4 className="font-bold text-3xl">
-            باهم بخندیم        </h4>
+            باهم بخندیم
+          </h4>
+          <MainLogo />
+
         </div>
 
       </div>
       <div className='w-full flex justify-center'>
         <div className='flex flex-wrap gap-8 justify-between items-center'>
-          {FUNNIEST_JOKES?.map((joke, i) => <FunnyCard key={i} item={{ ...joke, index: i + 1 }} />)}
+          {FUNNIEST_JOKES?.map((joke, i) => <FunnyCard disabled key={i} item={{ ...joke, index: i + 1 }} />)}
         </div>
       </div>
 

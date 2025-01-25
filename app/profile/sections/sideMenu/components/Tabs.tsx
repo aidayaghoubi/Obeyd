@@ -10,8 +10,8 @@ import { useAuth } from "@/context/AuthContext";
 
 
 const TABS = [
-  { id: "userInfo", title: "اطلاعات کاربری", icon: <FaUserCog /> },
   { id: "lastJokes", title: "آخرین جوک هات", icon: <BsEmojiLaughingFill /> },
+  { id: "userInfo", title: "اطلاعات کاربری", icon: <FaUserCog /> },
   { id: "services", title: "پشتیبانی", icon: <BsFillPatchQuestionFill /> }, ,
 ] as TTab[]
 

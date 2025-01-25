@@ -4,7 +4,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import Actions from "./Actions"
 
 
-export default function FunnyCard({ item }) {
+export default function FunnyCard({ item ,disabled=false}) {
   const { joke, user } = item;
 
   return (
@@ -13,7 +13,7 @@ export default function FunnyCard({ item }) {
         <p>
           {user}
         </p>
-        <button>
+        <button disabled={disabled} >
           <BsThreeDotsVertical color="grey" />
         </button>
       </div>
@@ -22,7 +22,7 @@ export default function FunnyCard({ item }) {
           {joke}
         </p>
       </div>
-      <Actions />
+      <Actions disabled={disabled} />
     </div>
   );
 }

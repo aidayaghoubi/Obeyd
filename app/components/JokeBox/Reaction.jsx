@@ -1,54 +1,38 @@
-import Image from "next/image"
-import replayIcon from '../Icons/replay.svg'
-import likeIcon from '../Icons/like.svg'
-import dislikeIcon from '../Icons/dislike.svg'
-import pokerIcon from '../Icons/poker.svg'
+import { FaCommentAlt } from "react-icons/fa";
 import fetcher from "@/app/utils/fetcher"
+import { FcLike } from "react-icons/fc";
+import { FcDislike } from "react-icons/fc";
 
 
-const Reaction = ({onShowComment ,jokeId ,likeCount,dislikeCount,replyCount}) => {
 
-  function likeDislikeHandler(method){
-    fetcher(`joke/${jokeId}/${method}` , { method : "POST" })
+const Reaction = ({ onShowComment, jokeId, likeCount, dislikeCount, replyCount, onUpdateJoke }) => {
+
+  function likeDislikeHandler(method) {
+    fetcher(`joke/${jokeId}/${method}`, { method: "POST" }).then(() => {
+      onUpdateJoke(method)
+    })
   }
 
-  return <div className="flex mt-2 items-center gap-16">
-    <div className="flex gap-1 items-center">
-    {replyCount}
-    <Image
-    onClick={()=>onShowComment(prev=>!prev)}
-      className="cursor-pointer"
-      priority
-      src={replayIcon}
-      alt="menu"
-    />
+
+  return <div className="flex mt-2 items-center justify-start mr-1 gap-10">
+    <div
+      onClick={() => onShowComment(prev => !prev)}
+      className="flex gap-1 items-center cursor-pointer">
+      {replyCount}
+      <FaCommentAlt size={24} color="#759dba" />
     </div>
-    <div className="flex gap-1 items-center">
-    {likeCount}
-    <Image
-    onClick={()=>likeDislikeHandler('like')}
-      className="cursor-pointer"
-      priority
-      src={likeIcon}
-      alt="menu"
-    />
+    <div
+      onClick={() => likeDislikeHandler('like')}
+      className="flex gap-1 items-center cursor-pointer">
+      {likeCount}
+      <FcLike size={30} />
     </div>
-   <div className="flex gap-1 items-center">
-    {dislikeCount}
-    <Image
-    onClick={()=>likeDislikeHandler("dislike")}
-      className="cursor-pointer"
-      priority
-      src={dislikeIcon}
-      alt="menu"
-    />
+    <div
+      onClick={() => likeDislikeHandler("dislike")}
+      className="flex gap-1 items-center cursor-pointer">
+      {dislikeCount}
+      <FcDislike size={30} />
     </div>
-    <Image
-      className="cursor-pointer"
-      priority
-      src={pokerIcon}
-      alt="menu"
-    />
   </div>
 }
 export default Reaction

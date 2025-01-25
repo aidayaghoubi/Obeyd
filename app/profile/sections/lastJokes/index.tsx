@@ -1,19 +1,20 @@
 import Joke from "@/app/components/JokeBox/Joke"
-import { FUNNIEST_JOKES } from "@/app/components/Landing/JokePreview"
+import { IJoke } from "@/app/jokes/JokeDirectory";
 import { motion } from "framer-motion";
 
-
-const LastJokes = () => {
+interface IUserJokes {
+  userJokes: IJoke[]
+}
+const LastJokes = ({ userJokes }:IUserJokes) => {
   return <motion.div
     initial={{ y: 30 }}
     animate={{ y: 0 }}
     transition={{ duration: 0.3 }}
-    style={{ overflow: "hidden" }}
   >
-    <div className="bg-white p-8 rounded-lg ">
-      <h2 className="font-bold text-xl">آخرین جک هات</h2>
-      {FUNNIEST_JOKES?.map((joke, i) =>
-        <Joke data={joke} key={i} />
+    <div className="bg-white p-8 rounded-lg shadow-lg">
+      <h2 className="font-[600] text-xl">آخرین جوک هات</h2>
+      {userJokes?.map((joke: IJoke) =>
+        <Joke data={joke} key={joke._id} />
       )}
     </div>
   </motion.div>

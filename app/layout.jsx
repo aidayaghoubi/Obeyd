@@ -1,13 +1,14 @@
 import "./globals.css";
-import { AuthProvider } from "../context/AuthContext"; 
+import { AuthProvider } from "../context/AuthContext";
+import { JokesProvider } from "../context/JokeContext";
 
 
 export const metadata = {
   title: "عبید",
-  description: "یه اپ بامزه برای جک های شما",
+  description: "یه اپ بامزه برای جوک های شما",
 };
-
 export default function RootLayout({ children }) {
+
 
   return (
     <html lang="en">
@@ -16,7 +17,9 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <AuthProvider>
-          {children}
+          <JokesProvider>
+            {children}
+          </JokesProvider>
         </AuthProvider>
       </body>
     </html>

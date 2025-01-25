@@ -8,9 +8,9 @@ const Support = () => {
     transition={{ duration: 0.3 }}
     style={{ padding: "20px", textAlign: "center" ,overflow:"hidden" }}
   >
-    <div className=" flex justify-center rounded-lg items-center">
-      <div className="flex flex-col items-start w-1/2">
-        <div className="text-lg">
+    <div className=" flex justify-center rounded-lg items-start">
+      <div className="flex flex-col items-start mt-10 w-1/2">
+        <div className="text-lg font-bold mb-2">
           <p>با ما در تماس باشین</p>
         </div>
         <div className="text-lg">

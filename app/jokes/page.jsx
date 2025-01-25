@@ -1,15 +1,18 @@
+"use client"
 import Layout from '../components/Layout';
 import JokeDirectory from './JokeDirectory';
-import fetcher from '../utils/fetcher';
+import AddJoke from '../components/AddJoke/AddJoke';
+import { useJokes } from '@/context/JokeContext';
 
-export default async function JokesPage() {
-  const data = await fetcher("joke" , { method : "GET" ,cache:  "no-cache" })
-  const jokesList = data.jokes
-  
+
+export default function JokesPage() {
+
+  const { jokes } = useJokes()
 
   return (
-      <Layout>
-        <JokeDirectory jokes={jokesList} />
-      </Layout>
+    <Layout>
+      <JokeDirectory jokes={jokes} />
+      <AddJoke />
+    </Layout>
   );
 }

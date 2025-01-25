@@ -1,7 +1,9 @@
 "use client";
 import { useAuth } from "@/context/AuthContext";
 import Image from "next/image";
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
+import { MdAccountCircle } from "react-icons/md";
+
 
 const Header = () => {
   const router = useRouter()
@@ -31,7 +33,8 @@ const Header = () => {
         <div className="w-2/6 flex justify-center text-[18px] text-end">
 
           {user?.name ?
-            <button onClick={() => navigateTo("profile")}>
+            <button className="flex gap-1 items-center"  onClick={() => navigateTo("profile")}>
+              <MdAccountCircle size={25}/>
               {user?.name}
             </button>
             :
