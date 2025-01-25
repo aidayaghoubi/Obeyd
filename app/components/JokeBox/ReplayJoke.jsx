@@ -21,7 +21,7 @@ const ReplayJoke = ({ jokeId, showReplay, replies, writer, onUpdateJoke }) => {
     fetcher(`joke/${jokeId}/reply`, {
       method: "POST",
       body: { reply: payload },
-    }).then((res) => {
+    }).then(() => {
       onUpdateJoke(payload);
       setValue("");
     });

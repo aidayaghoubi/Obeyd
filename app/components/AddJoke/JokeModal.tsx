@@ -28,7 +28,7 @@ const JokeModal = ({ showModal, onCloseModal }: IJokeModal) => {
       },
     }
     fetcher("joke", { method: "POST", body: payload })
-      .then((res) => {
+      .then(() => {
         updateJokes()
         onCloseModal()
       })

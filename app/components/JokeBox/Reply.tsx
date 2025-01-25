@@ -1,4 +1,3 @@
-import { formatJokeTime } from "@/app/utils/timeConvertor"
 import Image from "next/image"
 import { IReply } from "./Joke"
 
@@ -21,7 +20,6 @@ const Reply = ({ reply, isFirstItem }: IReplyInterface) => {
         }
         <div className="absolute top-3 left-3 text-sm">
             18:30
-            {/* {formatJokeTime(reply.createdAt)} */}
         </div>
         <div className="font-[600] mt-5 text-gray-900">
             {reply?.userName}
