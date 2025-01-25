@@ -28,9 +28,9 @@ interface IUserInfo {
 }
 const UserInfo = ({ user }: IUserInfo) => {
 
-  const [formData, setFormData] = useState<Record<string, string>>(user);
+  const [formData] = useState<Record<string, string>>(user);
 
-  function handleFormChange(e: string, id: string) {
+  function handleFormChange() {
     // setFormData(prev => ({ ...prev, [id]: e }))
   }
 
@@ -50,7 +50,7 @@ const UserInfo = ({ user }: IUserInfo) => {
         required={item.required}
         value={formData[item.name] || ""}
         type={item.name}
-        onChange={(e: string) => handleFormChange(e, item.name)}
+        onChange={() => handleFormChange()}
       />)}
       <div className="w-1/2">
         <Button className="w-[calc(50%-8px)] mt-5 bg-[#dda0a0]" onClick={() => console.log("d")} disabled={false} variant="submit" title="ویرایش اطلاعات" />
