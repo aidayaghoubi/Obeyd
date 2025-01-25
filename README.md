@@ -1,9 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Obeyd 🎉  
 
-## Getting Started
+Obeyd is a fun and interactive web application where users can post jokes, reply to them, and like their favorites! The app is built to provide a space for laughter and engagement while incorporating modern web technologies for a seamless user experience.  
 
-First, run the development server:
+---
 
+## Features 🚀  
+
+- **Post Jokes**: Share your funniest jokes with the community.  
+- **Like Jokes**: Show appreciation for jokes by liking them.  
+- **Reply to Jokes**: Engage in conversations by replying to jokes.  
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices.  
+- **Secure Authentication**: User login and session management with bcrypt and cookie-session.  
+
+---
+
+## Technologies Used 🛠️  
+
+### Frontend:  
+- **Next.js**: Server-side rendering (SSR) and client-side rendering (CSR) for a dynamic experience.  
+- **React**: A modern library for building user interfaces.  
+- **TailwindCSS & DaisyUI**: For styling and creating responsive, beautiful designs.  
+- **Framer Motion**: To add engaging animations and transitions.  
+
+### Backend:  
+- **Mongoose**: For managing MongoDB connections and schemas.  
+- **MongoDB Atlas**: A cloud-hosted NoSQL database solution.  
+- **bcrypt**: For secure password hashing.  
+- **cookie-session**: For session management.  
+
+---
+
+## Installation 🛠️  
+
+To run Obeyd locally, follow these steps:  
 ```bash
 npm run dev
 # or
@@ -13,24 +42,3 @@ pnpm dev
 # or
 bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
