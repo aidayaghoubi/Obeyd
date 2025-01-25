@@ -5,9 +5,11 @@ const KEY = 'user'
 const AuthContext = createContext();
 
 function getFromLocal() {
-  const data = localStorage.getItem(KEY)
-  if (data) {
-    return JSON.parse(data)
+  if (typeof window !== 'undefined') {
+    const data = localStorage.getItem(KEY)
+    if (data) {
+      return JSON.parse(data)
+    } else return null
   } else return null
 }
 
@@ -17,12 +19,16 @@ export const AuthProvider = ({ children }) => {
 
   const login = (userData) => {
     setUser(userData);
-    localStorage.setItem(KEY, JSON.stringify(userData));
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(KEY, JSON.stringify(userData));
+    }
   };
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem(KEY);
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem(KEY);
+    }
   };
 
   return (
