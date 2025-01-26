@@ -12,10 +12,12 @@ interface IJokeModal {
 const JokeModal = ({ showModal, onCloseModal }: IJokeModal) => {
 
   const [inputValue, setInputValue] = useState<{ content: string }>({ content: "" });
+  const [isLoading, setIsLoading] = useState(false);
   const { updateJokes } = useJokes()
   const { user } = useAuth()
 
   function createNewJokeHandler() {
+    setIsLoading(true)
     const payload = {
       content: inputValue.content,
       likeCount: 0,
@@ -31,7 +33,8 @@ const JokeModal = ({ showModal, onCloseModal }: IJokeModal) => {
       .then(() => {
         updateJokes()
         onCloseModal()
-        setInputValue({content:''})
+        setInputValue({ content: '' })
+        setIsLoading(false)
       })
   }
 
@@ -63,7 +66,10 @@ const JokeModal = ({ showModal, onCloseModal }: IJokeModal) => {
 
       <div className="modal-action justify-end gap-5 ">
         <Button disabled={false} variant="rounded" className="!m-0 !w-1/4" title="بستن" onClick={onCloseModal} />
-        <Button variant="submit" title="جوکت و به اشتراک بزار" disabled={inputValue.content.length < 6} onClick={createNewJokeHandler}
+        <Button variant="submit"
+          title={isLoading ? "در حال ارسال" : "جوکت و به اشتراک بزار"}
+          disabled={inputValue.content.length < 6 || isLoading}
+          onClick={createNewJokeHandler}
           className="!w-2/4 !m-0" />
       </div>
     </div>

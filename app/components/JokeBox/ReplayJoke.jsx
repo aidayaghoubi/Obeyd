@@ -9,9 +9,11 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const ReplayJoke = ({ jokeId, showReplay, replies, writer, onUpdateJoke }) => {
   const [value, setValue] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const { user } = useAuth();
 
   function sendReplyToServerHandler() {
+    setIsLoading(true)
     const payload = {
       userName: user.name,
       userId: user.userName,
@@ -24,6 +26,7 @@ const ReplayJoke = ({ jokeId, showReplay, replies, writer, onUpdateJoke }) => {
     }).then(() => {
       onUpdateJoke(payload);
       setValue("");
+      setIsLoading(false)
     });
   }
 
@@ -36,9 +39,8 @@ const ReplayJoke = ({ jokeId, showReplay, replies, writer, onUpdateJoke }) => {
 
   return (
     <motion.div
-      className={`transition-all duration-500 overflow-hidden ${
-        showReplay ? "max-h-auto" : "max-h-0"
-      }`}
+      className={`transition-all duration-500 overflow-hidden ${showReplay ? "max-h-auto" : "max-h-0"
+        }`}
       initial={{ opacity: 0 }}
       animate={{ opacity: showReplay ? 1 : 0 }}
       transition={{ duration: 0.5 }}
@@ -47,7 +49,7 @@ const ReplayJoke = ({ jokeId, showReplay, replies, writer, onUpdateJoke }) => {
         {replies?.map((reply, i) => (
           <motion.div
             key={reply?._id}
-            layout // Helps animate layout changes
+            layout
             {...replyAnimation}
           >
             <Reply isFirstItem={i === 0} reply={reply} />
@@ -62,6 +64,7 @@ const ReplayJoke = ({ jokeId, showReplay, replies, writer, onUpdateJoke }) => {
       </div>
       <div className="flex justify-between mt-4 gap-4 mb-5">
         <input
+          disabled={isLoading}
           onChange={(e) => setValue(e.target.value)}
           value={value}
           type="text"
@@ -69,13 +72,18 @@ const ReplayJoke = ({ jokeId, showReplay, replies, writer, onUpdateJoke }) => {
           placeholder="......"
         />
         <button
-          disabled={value.length < 5}
-          className={`${
-            value.length < 5 ? "bg-gray-400" : "bg-[#759dba]"
-          } px-6 py-2 rounded`}
+          disabled={value.length < 5 || isLoading}
+          className={`${value.length < 5 ? "bg-gray-400" : "bg-[#759dba]"
+            } px-6 py-2 rounded`}
           onClick={sendReplyToServerHandler}
         >
-          ارسال
+          {
+            isLoading ?
+              <span className="loading loading-spinner loading-sm"></span>
+              :
+              "ارسال"
+          }
+
         </button>
       </div>
     </motion.div>
