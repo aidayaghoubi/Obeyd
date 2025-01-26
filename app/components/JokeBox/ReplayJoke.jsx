@@ -63,6 +63,7 @@ const ReplayJoke = ({ jokeId, showReplay, replies, writer, onUpdateJoke }) => {
       <div className="flex justify-between mt-4 gap-4 mb-5">
         <input
           onChange={(e) => setValue(e.target.value)}
+          value={value}
           type="text"
           className="w-full py-2 px-2 border-2 bg-white rounded !border-[#AEC7E0]"
           placeholder="......"

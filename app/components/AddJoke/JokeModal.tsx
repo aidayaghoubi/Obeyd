@@ -31,6 +31,7 @@ const JokeModal = ({ showModal, onCloseModal }: IJokeModal) => {
       .then(() => {
         updateJokes()
         onCloseModal()
+        setInputValue({content:''})
       })
   }
 

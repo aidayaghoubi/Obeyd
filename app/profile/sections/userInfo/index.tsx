@@ -53,7 +53,7 @@ const UserInfo = ({ user }: IUserInfo) => {
         onChange={() => handleFormChange()}
       />)}
       <div className="w-1/2">
-        <Button className="w-[calc(50%-8px)] mt-5 bg-[#dda0a0]" onClick={() => console.log("d")} disabled={false} variant="submit" title="ویرایش اطلاعات" />
+        <Button  className="w-[calc(50%-8px)] mt-5 hover:!scale-100 !bg-[#dda0a0]" onClick={() => console.log("d")} disabled={true} variant="submit" title="ویرایش اطلاعات" />
       </div>
 
     </div>
